@@ -1,5 +1,9 @@
 .idea
 docker-composer.override.yml
+public/assets/ibexa/build
+public/assets/richtext/build
+public/assets/translations
+public/.htaccess
 
 ###> symfony/framework-bundle ###
 /.env.local

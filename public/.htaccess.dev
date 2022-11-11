@@ -1,0 +1,48 @@
+Header set X-Robots-Tag "noindex"
+
+DirectoryIndex index.php
+
+# Set default timeout to 90s, and max upload to 48mb
+#TimeOut 90
+#LimitRequestBody 49152
+
+# Disabling MultiViews prevents unwanted negotiation, e.g. "/app" should not resolve
+# to the front controller "/index.php" but be rewritten to "/index.php/app".
+<IfModule mod_negotiation.c>
+    Options -MultiViews
+</IfModule>
+
+RewriteEngine On
+
+# For FastCGI mode or when using PHP-FPM, to get basic auth working.
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# Disable .php(3) and other executable extensions in the var directory
+RewriteRule ^var/.*(?i)\.(php3?|phar|phtml|sh|exe|pl|bin)$ - [F]
+
+# Cluster/streamed files rewrite rules. Enable on cluster with DFS as a binary data handler
+#RewriteCond %{ENV:BINARY_DATA_HANDLER} "dfs"
+#RewriteRule ^var/([^/]+/)?storage/images(-versioned)?/.* /index.php [L]
+
+RewriteRule ^var/([^/]+/)?storage/images(-versioned)?/.* - [L]
+
+# Makes it possible to placed your favicon and robots.txt at the root of your web folder
+RewriteRule ^favicon\.ico - [L]
+RewriteRule ^robots\.txt - [L]
+
+# The following rules are needed to correctly display bundle and project assets
+RewriteRule ^bundles/ - [L]
+RewriteRule ^build/ - [L]
+RewriteRule ^assets/ibexa/build/ - [L]
+RewriteRule ^assets/richtext/build/ - [L]
+RewriteRule ^assets/translations/ - [L]
+
+# Additional Assetic rules for environments different from dev,
+# remember to run php bin/console assetic:dump --env=prod
+RewriteCond %{ENV:APP_ENV} !^(dev)
+RewriteRule ^(css|js|fonts?)/.*\.(css|js|otf|eot|ttf|svg|woff) - [L]
+
+# Prevent access to website with direct usage of index.php in URL
+RewriteRule ^/(.+/)?index\.php - [R=404,L]
+
+RewriteRule .* index.php

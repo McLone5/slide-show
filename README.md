@@ -1,4 +1,18 @@
-# Ibexa Flex website skeleton
+# Slide show
+
+A project about archiving photos in a controlled environment, while sharing them with selected people.
+
+## Boot Dev environment
+```shell
+cd docker
+make init
+```
+
+Front should be here : http://localhost:8001/
+Back should be here : http://localhost:8001/admin
+Admin account : admin / publish
+
+# Based on : Ibexa Flex website skeleton
 
 This is a Symfony Flex website skeleton allowing installation of all editions of
 [Ibexa DXP](https://www.ibexa.co/products) and Ibexa Open Source.

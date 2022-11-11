@@ -2,7 +2,7 @@
     "type": "project",
     "license": ["(GPL-2.0-only or proprietary)"],
     "require": {
-        "php": ">=7.4",
+        "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/annotations": "^1.0",
@@ -89,10 +89,7 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "yarn install": "script",
-            "ibexa:encore:compile --config-name app": "symfony-cmd",
-            "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
-            "ibexa:encore:compile": "symfony-cmd"
+            "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
