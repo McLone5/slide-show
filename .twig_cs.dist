@@ -1,0 +1,12 @@
+<?php
+
+use App\Tests\TwigCs\TwigCsRuleSet;
+use FriendsOfTwig\Twigcs\Config\Config;
+
+$finder = FriendsOfTwig\Twigcs\Finder\TemplateFinder::create()->in(__DIR__.'/templates');
+
+return Config::create()
+    ->setRuleset(TwigCsRuleSet::class)
+    ->addFinder($finder)
+    ->setName('slide_show_config')
+;

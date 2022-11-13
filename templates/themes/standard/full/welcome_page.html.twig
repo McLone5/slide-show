@@ -32,10 +32,9 @@
                 {{ ibexa_render_field(content, 'short_description') }}
                 <p class="mb-0">{{ 'ibexa_platform_welcome_page.navigate_to'|trans({'%target%': project_dir})|desc('Navigate to: %target%') }}</p>
 
-                {% set admin_url = url('ibexa.dashboard', { 'siteaccess': 'admin' }) %}
+                {% set admin_url = url('ibexa.dashboard', {'siteaccess': 'admin'}) %}
                 <p class="mb-0">
-                    {{ 'ibexa_platform_welcome_page.create_new_content_at'|trans({'%target%': '<a href="' ~ admin_url ~ '" class="text-white"><u>' ~ admin_url ~ '</u></a>' })
-                    |desc('Create new content at %target%')|raw }}
+                    {{ 'ibexa_platform_welcome_page.create_new_content_at'|trans({'%target%': '<a href="' ~ admin_url ~ '" class="text-white"><u>' ~ admin_url ~ '</u></a>'})|desc('Create new content at %target%')|raw }}
                 </p>
             </div>
         </div>
@@ -152,7 +151,7 @@
             '%ibexa_link_open%': '<a href="http://ibexa.co" target="_blank">',
             '%ibexa_link_close%': '</a>',
             '%current_year%': "now"|date("Y")
-        }) |desc('Ibexa Platform © %current_year% %ibexa_link_open%Ibexa%ibexa_link_close% and others')|raw }}
+        })|desc('Ibexa Platform © %current_year% %ibexa_link_open%Ibexa%ibexa_link_close% and others')|raw }}
         </span>
     </div>
 </footer>

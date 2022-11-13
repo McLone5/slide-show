@@ -25,17 +25,13 @@ cc: cache-clear
 asset-dev: npm-dev
 watch: npm-watch
 asset-prod: npm-prod
-#test: phpstan behat php-cs-check twigcs
-#quick-qa: phpstan php-cs-check twigcs
-#qq: quick-qa
-#tf: twigcs behat
 sf-cmd: symfony-cmd
 pp: post-pull
 build: asset-prod
 rebuild-all-db: rebuild-dev-db rebuild-test-db
-#phpcs: php-cs-check
-#phpcbf: php-cs-fix
 reset-db: rebuild-all-db
+qq: quick_qa
+
 
 post-pull:
 	make vendor
@@ -224,3 +220,15 @@ htaccess-update:
 
 clean:
 	rm -rf ../var/cache/dev ../var/cache/test ../var/log/dev.log ../var/log/test.log
+
+test:
+	$(DOCKER_PHP) "composer test"
+
+quick_qa:
+	$(DOCKER_PHP) "composer quick_qa"
+
+behat:
+	$(DOCKER_PHP) "vendor/bin/behat --stop-on-failure $(ARGS)"
+
+behat-tags:
+	$(DOCKER_PHP) "vendor/bin/behat --tags=$(TAGS) --stop-on-failure $(ARGS)"

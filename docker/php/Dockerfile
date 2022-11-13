@@ -1,5 +1,7 @@
 FROM ezsystems/php:8.1
 
+COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
 ENV COMPOSER_HOME=~/.composer
 RUN composer self-update
 RUN chown 1000:1000 /usr/local/bin/composer
