@@ -5,5 +5,4 @@ default:
                 - App\Tests\Behat\WebContext
 
     extensions:
-        FriendsOfBehat\SymfonyExtension:
-            bootstrap: tests/bootstrap.php
+        FriendsOfBehat\SymfonyExtension: ~
