@@ -232,3 +232,6 @@ behat:
 
 behat-tags:
 	$(DOCKER_PHP) "vendor/bin/behat --tags=$(TAGS) --stop-on-failure $(ARGS)"
+
+phpcsfix:
+	$(DOCKER_PHP) "vendor/bin/php-cs-fixer fix"

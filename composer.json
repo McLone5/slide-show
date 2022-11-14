@@ -105,7 +105,7 @@
         ],
         "quick_qa": [
             "php vendor/bin/phpstan analyze",
-            "php vendor/bin/php-cs-fixer fix",
+            "php vendor/bin/php-cs-fixer fix --dry-run",
             "php vendor/bin/twigcs"
         ],
         "test": [
