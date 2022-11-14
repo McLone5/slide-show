@@ -50,4 +50,5 @@ return [
     Hautelook\TemplatedUriBundle\HautelookTemplatedUriBundle::class => ['all' => true],
     Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle::class => ['all' => true],
     FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
+    Kaliop\eZMigrationBundle\eZMigrationBundle::class => ['all' => true],
 ];

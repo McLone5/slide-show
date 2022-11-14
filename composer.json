@@ -49,6 +49,7 @@
         "symfony/var-exporter": "5.4.*",
         "symfony/web-link": "5.4.*",
         "symfony/yaml": "5.4.*",
+        "tanoconsulting/ibexa-migration-bundle": "@alpha",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
     },

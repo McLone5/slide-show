@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "137ca3bb4ebbe84b1502f445508538f3",
+    "content-hash": "0c9131bd269f7ed06d4c6f603240feb7",
     "packages": [
         {
             "name": "babdev/pagerfanta-bundle",
@@ -5690,6 +5690,67 @@
                 }
             ],
             "time": "2022-07-24T11:55:47+00:00"
+        },
+        {
+            "name": "mtdowling/jmespath.php",
+            "version": "2.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jmespath/jmespath.php.git",
+                "reference": "9b87907a81b87bc76d19a7fb2d61e61486ee9edb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/9b87907a81b87bc76d19a7fb2d61e61486ee9edb",
+                "reference": "9b87907a81b87bc76d19a7fb2d61e61486ee9edb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4 || ^7.0 || ^8.0",
+                "symfony/polyfill-mbstring": "^1.17"
+            },
+            "require-dev": {
+                "composer/xdebug-handler": "^1.4 || ^2.0",
+                "phpunit/phpunit": "^4.8.36 || ^7.5.15"
+            },
+            "bin": [
+                "bin/jp.php"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/JmesPath.php"
+                ],
+                "psr-4": {
+                    "JmesPath\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Declaratively specify how to extract elements from a JSON document",
+            "keywords": [
+                "json",
+                "jsonpath"
+            ],
+            "support": {
+                "issues": "https://github.com/jmespath/jmespath.php/issues",
+                "source": "https://github.com/jmespath/jmespath.php/tree/2.6.1"
+            },
+            "time": "2021-06-14T00:11:39+00:00"
         },
         {
             "name": "murtukov/php-code-generator",
@@ -13862,6 +13923,89 @@
             "time": "2022-10-03T15:15:50+00:00"
         },
         {
+            "name": "tanoconsulting/ibexa-migration-bundle",
+            "version": "1.0.0-ALPHA1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tanoconsulting/ibexa-migration-bundle.git",
+                "reference": "7abb03fa999fe6731e9b96b3125e410ccf5bccea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tanoconsulting/ibexa-migration-bundle/zipball/7abb03fa999fe6731e9b96b3125e410ccf5bccea",
+                "reference": "7abb03fa999fe6731e9b96b3125e410ccf5bccea",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.11|^3.0",
+                "ext-ctype": "*",
+                "ext-json": "*",
+                "ext-pdo": "*",
+                "ibexa/core": "^4.0",
+                "mtdowling/jmespath.php": "^2.0.0",
+                "nikic/php-parser": "^4.2.2",
+                "php": "^7.4|^8.0",
+                "symfony/process": "*",
+                "symfony/swiftmailer-bundle": "*",
+                "symfony/validator": "*",
+                "symfony/var-dumper": "*"
+            },
+            "conflict": {
+                "kaliop/ezmigrationbundle": "*",
+                "tanoconsulting/ezmigrationbundle2": "*"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^2.0@dev",
+                "phpunit/phpunit": "^8.5.12"
+            },
+            "suggest": {
+                "php-http/httplug-bundle": "Required for usage of HTTP/CALL migration steps"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Kaliop\\eZMigrationBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Douglas Hammond",
+                    "email": "wizhippo@gmail.com",
+                    "role": "Original author"
+                },
+                {
+                    "name": "Gaetano Giunta",
+                    "email": "ggiunta@tanoconsulting.com",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Peter Halasz",
+                    "role": "Original author"
+                }
+            ],
+            "description": "The port of Kaliop eZ-Migration Bundle to Ibexa 4",
+            "keywords": [
+                "database",
+                "ibexa",
+                "migrations"
+            ],
+            "support": {
+                "issues": "https://github.com/tanoconsulting/ibexa-migration-bundle/issues",
+                "source": "https://github.com/tanoconsulting/ibexa-migration-bundle/tree/1.0.0-ALPHA1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/tanoconsulting",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-11-13T17:50:02+00:00"
+        },
+        {
             "name": "toflar/psr6-symfony-http-cache-store",
             "version": "3.0.1",
             "source": {
@@ -16593,7 +16737,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "tanoconsulting/ibexa-migration-bundle": 15
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
