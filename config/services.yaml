@@ -22,3 +22,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Infrastructure\Migration\RootMigrationsFilesystem:
+        arguments:
+            $versionDirectoryParameter: 'ez_migration_bundle.version_directory'
+    ez_migration_bundle.loader:
+        alias: App\Infrastructure\Migration\RootMigrationsFilesystem
