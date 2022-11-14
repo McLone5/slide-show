@@ -1,0 +1,49 @@
+-
+    type: content_type
+    mode: create
+    content_type_group: Content
+    lang: eng-GB
+    name: Home page
+    identifier: home_page
+    is_container: true
+    name_pattern: <name>
+    default_sort_field: priority
+    default_sort_order: ASC
+    default_always_available: true
+    attributes:
+        -
+            type: ezstring
+            identifier: name
+            name: Title
+            required: true
+        -
+            type: ezrichtext
+            identifier: short_description
+            name: Short description
+            required: false
+        -
+            type: ezrichtext
+            identifier: description
+            name: Description
+            required: false
+-
+    type: content
+    mode: create
+    lang: eng-GB
+    content_type: home_page
+    parent_location: 2
+    remote_id: home_page
+    attributes:
+        name: Home
+-
+    type: location
+    mode: update
+    match:
+        content_remote_id: home_page
+    swap_with_location: 2
+-
+    type: content
+    mode: delete
+    match:
+        content_id: 1
+
