@@ -12,6 +12,8 @@ jobs:
                 image: mariadb:10.9.4
                 env:
                     MYSQL_ROOT_PASSWORD: root
+                ports:
+                    - 3306:3306
         steps:
             - name: Checkout
               uses: actions/checkout@v3
@@ -32,10 +34,7 @@ jobs:
 
             # Change .env to .env.test.local
             - name: Create database
-              run: |
-                  php bin/console cache:clear
-                  php bin/console doctrine:database:create
-                  php bin/console ibexa:install ibexa-oss || echo "Failed to create base CMS database"
+              run: php bin/console ibexa:install ibexa-oss || echo "Failed to create base CMS database"
               env:
                   APP_ENV: test
                   DATABASE_URL: "mysql://root:root@127.0.0.1:3306/app?serverVersion=mariadb-10.9.4"
