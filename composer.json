@@ -98,10 +98,15 @@
             "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd"
         },
         "post-install-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "@migrate_db"
         ],
         "post-update-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "@migrate_db"
+        ],
+        "migrate_db": [
+            "php bin/console kaliop:migration:migrate --siteaccess=admin"
         ],
         "quick_qa": [
             "php vendor/bin/phpstan analyze",

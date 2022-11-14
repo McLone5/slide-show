@@ -200,13 +200,27 @@ npm-dev:
 ## APP SPECIFIC
 ## -------
 ##
+migrate: ## Execute all migration
+migrate:
+	make exec-php ARGS="php -d memory_limit=-1 bin/console kaliop:migration:migrate -n --siteaccess=$(or $(SA), admin) --env=$(or $(ENV), dev) $(ARGS)"
+
+delete-migration: ## Delete a migration
+delete-migration:
+	make symfony-cmd ARGS="kaliop:migration:migration -n --delete $(FILE) --siteaccess=$(or $(SA), admin)  --env=$(or $(ENV), dev)"
+
+dmm:
+	make delete-migration FILE=$(FILE) SA=$(or $(SA), admin)  ENV=$(or $(ENV), dev)
+	make exec-php ARGS="php -d memory_limit=-1 bin/console kaliop:migration:migrate -n --siteaccess=$(or $(SA), admin) --env=$(or $(ENV), dev) $(ARGS)"
+
 rebuild-test-db:
 	make symfony-cmd ARGS="doctrine:database:drop --force --env=test"
 	make symfony-cmd ARGS="ibexa:install ibexa-oss --env=test"
+	make migrate ENV=test
 
 rebuild-dev-db:
 	make symfony-cmd ARGS="doctrine:database:drop --force"
 	make symfony-cmd ARGS="ibexa:install ibexa-oss"
+	make migrate
 
 security-check:
 ifeq (, $(shell command -v local-php-security-checker &> /dev/null))
@@ -222,12 +236,14 @@ clean:
 	rm -rf ../var/cache/dev ../var/cache/test ../var/log/dev.log ../var/log/test.log
 
 test:
+	make migrate ENV=test
 	$(DOCKER_PHP) "composer test"
 
 quick_qa:
 	$(DOCKER_PHP) "composer quick_qa"
 
 behat:
+	make migrate ENV=test
 	$(DOCKER_PHP) "vendor/bin/behat --stop-on-failure $(ARGS)"
 
 behat-tags:

@@ -28,10 +28,14 @@ jobs:
             - name: Install Composer dependencies and boot php generated encore dependencies
               run: |
                   composer install --no-progress --prefer-dist --optimize-autoloader --no-scripts
-                  APP_ENV=test composer run auto-scripts -n
+                  composer run auto-scripts -n
+              env:
+                  APP_ENV: test
 
             - name: Create database
-              run: php bin/console ibexa:install ibexa-oss || echo "Failed to create base CMS database"
+              run: |
+                  php bin/console ibexa:install ibexa-oss || echo "Failed to create base CMS database"
+                  composer run migrate_db -n
               env:
                   APP_ENV: test
 
