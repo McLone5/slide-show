@@ -106,7 +106,7 @@
             "@migrate_db"
         ],
         "migrate_db": [
-            "php bin/console kaliop:migration:migrate --siteaccess=admin"
+            "php bin/console kaliop:migration:migrate -n --siteaccess=admin"
         ],
         "quick_qa": [
             "php vendor/bin/phpstan analyze",
