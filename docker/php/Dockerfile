@@ -1,6 +1,6 @@
 FROM ezsystems/php:8.1
 
-COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini.disabled
 
 ENV COMPOSER_HOME=~/.composer
 RUN composer self-update
