@@ -51,5 +51,5 @@ jobs:
                   yarn run build
             - name: Migrate DB
               run: composer run migrate_db -n
-            - name: Migrate the DB and run tests
+            - name: Run tests
               run: composer run test
