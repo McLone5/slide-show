@@ -35,7 +35,6 @@ jobs:
             - name: Create database
               run: |
                   php bin/console ibexa:install ibexa-oss || echo "Failed to create base CMS database"
-                  composer run migrate_db -n
               env:
                   APP_ENV: test
 
@@ -52,8 +51,11 @@ jobs:
               run: |
                   yarn install --frozen-lockfile
                   yarn run build
-
-            - name: Run tests
+            - name: Migrate DB
+              run: composer run migrate_db -n
+              env:
+                  APP_ENV: test
+            - name: Migrate the DB and run tests
               run: composer run test
               env:
                 APP_ENV: test
