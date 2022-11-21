@@ -9,8 +9,17 @@ make init
 ```
 
 Front should be here : http://localhost:8001/
+
 Back should be here : http://localhost:8001/admin
+
 Admin account : admin / publish
+
+## Run CI tests suite on Dev environment
+```shell
+cd docker
+make test
+```
+
 
 # Based on : Ibexa Flex website skeleton
 
