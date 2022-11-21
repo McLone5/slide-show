@@ -1,0 +1,33 @@
+-
+    type: content_type
+    mode: create
+    content_type_group: Content
+    lang: eng-GB
+    name: Photo
+    identifier: photo
+    is_container: false
+    name_pattern: <name>
+    default_always_available: true
+    attributes:
+        -
+            type: ezstring
+            identifier: name
+            name: Title
+            required: true
+        -
+            type: mlphoto
+            identifier: photo
+            name: Photo
+            required: true
+-
+    type: content
+    mode: create
+    lang: eng-GB
+    content_type: photo
+    parent_location: 2
+    remote_id: photo_test
+    location_remote_id: photo_test
+    attributes:
+        name: Photo
+        photo: test.jpg
+
