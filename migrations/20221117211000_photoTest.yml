@@ -1,19 +1,10 @@
 -
     type: content_type
-    mode: create
-    content_type_group: Content
+    mode: update
     lang: eng-GB
-    name: Photo
-    identifier: photo
-    is_container: false
-    name_pattern: <name>
-    default_always_available: true
+    match:
+        identifier: home_page
     attributes:
-        -
-            type: ezstring
-            identifier: name
-            name: Title
-            required: true
         -
             type: mlphoto
             identifier: photo
@@ -21,13 +12,10 @@
             required: true
 -
     type: content
-    mode: create
+    mode: update
     lang: eng-GB
-    content_type: photo
-    parent_location: 2
-    remote_id: photo_test
-    location_remote_id: photo_test
+    match:
+        content_remote_id: home_page
     attributes:
-        name: Photo
         photo: test.jpg
 
