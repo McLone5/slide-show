@@ -9,7 +9,7 @@ use Ibexa\Core\Persistence\Legacy\Content\StorageFieldDefinition;
 use Ibexa\Core\Persistence\Legacy\Content\StorageFieldValue;
 use JsonException;
 
-class PhotoConverter implements Converter
+final class PhotoConverter implements Converter
 {
     /**
      * Converts data from $value to $storageFieldValue.

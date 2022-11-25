@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Migration;
 
+use DirectoryIterator;
 use Kaliop\eZMigrationBundle\API\Value\MigrationDefinition;
 use Kaliop\eZMigrationBundle\Core\Loader\Filesystem;
 use RuntimeException;
@@ -46,7 +47,7 @@ final class RootMigrationsFilesystem extends Filesystem
                     (string)file_get_contents($path)
                 );
             } elseif (is_dir($path)) {
-                foreach (new \DirectoryIterator($path) as $file) {
+                foreach (new DirectoryIterator($path) as $file) {
                     if ($file->isFile()) {
                         $definitions[$file->getFilename()] =
                             $returnFilename ? (string)$file->getRealPath() : new MigrationDefinition(

@@ -6,6 +6,7 @@ use App\Domains\Photo\FileStorageInterface;
 use App\Domains\Photo\ImageAnalyzerInterface;
 use DomainException;
 use Ibexa\Contracts\Core\Exception\InvalidArgumentType;
+use Ibexa\Contracts\Core\FieldType\ValidationError;
 use Ibexa\Contracts\Core\FieldType\Value as SPIValue;
 use Ibexa\Contracts\Core\Persistence\Content\FieldValue;
 use Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException;
@@ -96,7 +97,7 @@ final class Type extends FieldType
      *
      * @param mixed $validatorConfiguration
      *
-     * @return \Ibexa\Contracts\Core\FieldType\ValidationError[]
+     * @return ValidationError[]
      */
     public function validateValidatorConfiguration($validatorConfiguration): array
     {

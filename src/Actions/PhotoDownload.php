@@ -6,7 +6,6 @@ namespace App\Actions;
 
 use App\Domains\Photo\FileStorageInterface;
 use App\Infrastructure\FieldTypes\Photo\Value;
-use Exception;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\Exceptions\BadStateException;
 use Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException;
@@ -16,7 +15,6 @@ use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Core\Helper\TranslationHelper;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
