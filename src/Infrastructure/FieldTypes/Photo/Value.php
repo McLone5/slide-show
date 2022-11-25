@@ -13,6 +13,7 @@ final class Value extends BaseValue
         public ?string $hash = null,
         public ?int $width = null,
         public ?int $height = null,
+        public ?int $imageType = null,
     ) {
         parent::__construct();
     }

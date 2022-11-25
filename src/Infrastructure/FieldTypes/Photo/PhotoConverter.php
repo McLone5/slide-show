@@ -32,6 +32,7 @@ class PhotoConverter implements Converter
             'hash' => $data['hash'] ?? null,
             'width' => $data['width'] ?? null,
             'height' => $data['height'] ?? null,
+            'imageType' => $data['imageType'] ?? null,
         ], JSON_THROW_ON_ERROR);
 
         $storageFieldValue->sortKeyString = $data['pathname'] ?? '';
@@ -59,6 +60,7 @@ class PhotoConverter implements Converter
             'hash' => $storageValue['hash'] ?? null,
             'width' => $storageValue['width'] ?? null,
             'height' => $storageValue['height'] ?? null,
+            'imageType' => $storageValue['imageType'] ?? null,
         ];
     }
 

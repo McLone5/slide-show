@@ -85,6 +85,9 @@ final class Type extends FieldType
             if (!$value->height) {
                 throw new InvalidArgumentType('height', '!null');
             }
+            if (!$value->imageType) {
+                throw new InvalidArgumentType('imageType', '!null');
+            }
         }
     }
 
@@ -141,6 +144,7 @@ final class Type extends FieldType
             'hash' => $value->hash,
             'width' => $value->width,
             'height' => $value->height,
+            'imageType' => $value->imageType,
         ];
     }
 
@@ -211,6 +215,7 @@ final class Type extends FieldType
         $hash = $inputValue['hash'] ?? null;
         $width = $inputValue['width'] ?? null;
         $height = $inputValue['height'] ?? null;
+        $imageType = $inputValue['imageType'] ?? null;
 
         return new Value(
             $pathname ? (string)$pathname : null,
@@ -219,6 +224,7 @@ final class Type extends FieldType
             $hash ? (string)$hash : null,
             $width ? (int)$width : null,
             $height ? (int)$height : null,
+            $imageType ? (int)$imageType : null,
         );
     }
 }

@@ -51,17 +51,19 @@ final class PhotoDownload
         if (!$fieldValue instanceof Value) {
             throw new NotFoundHttpException('Field not found');
         }
+        if (!$fieldValue->imageType) {
+            throw new NotFoundHttpException('Missing image type');
+        }
 
         try {
             $file = $this->fileStorage->getFileFromPathname((string)$fieldValue->pathname);
         } catch (FileNotFoundException) {
             throw new NotFoundHttpException('File not found');
         }
-        $imageType = getimagesize($file->getPathname())[2] ?? throw new NotFoundHttpException('Unable to get image type');
 
         $response = new BinaryFileResponse($file);
         $response->setContentDisposition(ResponseHeaderBag::DISPOSITION_INLINE, $baseFilename);
-        $response->headers->set('Content-Type', image_type_to_mime_type($imageType));
+        $response->headers->set('Content-Type', image_type_to_mime_type($fieldValue->imageType));
 
         return $response;
     }
