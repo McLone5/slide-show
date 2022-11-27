@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class PhotoDownload
+final class PhotoAccess
 {
     public function __construct(
         private readonly ContentService $contentService,
@@ -33,7 +33,7 @@ final class PhotoDownload
      * @throws BadStateException
      * @throws InvalidArgumentException
      */
-    #[Route('/photo_download/{contentId}/{fieldIdentifier}/{baseFilename}')]
+    #[Route('/photo/{contentId}/{fieldIdentifier}/{baseFilename}')]
     public function __invoke(int $contentId, string $fieldIdentifier, string $baseFilename): BinaryFileResponse
     {
         try {
