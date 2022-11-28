@@ -6,7 +6,7 @@ namespace App\Infrastructure\Photo;
 
 use App\Domains\Photo\FileStorageInterface;
 use App\Domains\Photo\ImageAnalyzerInterface;
-use App\Infrastructure\FieldTypes\Photo\Value;
+use App\Domains\Photo\FieldTypes\Value;
 use RuntimeException;
 use Symfony\Component\HttpFoundation\File\File;
 

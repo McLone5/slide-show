@@ -40,9 +40,9 @@ services:
     ez_migration_bundle.loader:
         alias: App\Infrastructure\Migration\RootMigrationsFilesystem
 
-    App\Infrastructure\FieldTypes\Photo\Type:
+    App\Domains\Photo\FieldTypes\Type:
         tags:
             - { name: ibexa.field_type, alias: mlphoto }
-    App\Infrastructure\FieldTypes\Photo\PhotoConverter:
+    App\Domains\Photo\FieldTypes\PhotoConverter:
         tags:
             - { name: ibexa.field_type.storage.legacy.converter, alias: mlphoto }

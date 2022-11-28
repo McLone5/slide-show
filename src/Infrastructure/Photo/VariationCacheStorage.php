@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Infrastructure\Photo;
 
 use App\Domains\Photo\VariationCacheStorageInterface;
-use App\Infrastructure\FieldTypes\Photo\Value;
+use App\Domains\Photo\FieldTypes\Value;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\File;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\FieldTypes\Photo;
+namespace App\Domains\Photo\FieldTypes;
 
 use Ibexa\Core\FieldType\Value as BaseValue;
 

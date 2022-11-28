@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
-use App\Domains\Photo\FileStorageInterface;
 use App\Domains\Photo\NonExistingVariationNameException;
 use App\Domains\Photo\VariationProviderInterface;
-use App\Infrastructure\FieldTypes\Photo\Value;
+use App\Domains\Photo\FieldTypes\Value;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\Exceptions\BadStateException;
 use Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException;

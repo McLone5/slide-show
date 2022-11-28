@@ -6,7 +6,7 @@ use App\Domains\Photo\FileStorageInterface;
 use App\Domains\Photo\NonExistingVariationNameException;
 use App\Domains\Photo\VariationCacheStorageInterface;
 use App\Domains\Photo\VariationProviderInterface;
-use App\Infrastructure\FieldTypes\Photo\Value;
+use App\Domains\Photo\FieldTypes\Value;
 use Ibexa\Bundle\Core\Imagine\IORepositoryResolver;
 use Liip\ImagineBundle\Binary\BinaryInterface;
 use Liip\ImagineBundle\Exception\Imagine\Filter\NonExistingFilterException;

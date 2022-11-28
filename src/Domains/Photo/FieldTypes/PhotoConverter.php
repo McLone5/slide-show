@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\FieldTypes\Photo;
+namespace App\Domains\Photo\FieldTypes;
 
 use Ibexa\Contracts\Core\Persistence\Content\FieldValue;
 use Ibexa\Contracts\Core\Persistence\Content\Type\FieldDefinition;
