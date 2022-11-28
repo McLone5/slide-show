@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Actions;
 
 use App\Domains\Photo\FileStorageInterface;
+use App\Domains\Photo\NonExistingVariationNameException;
+use App\Domains\Photo\VariationProviderInterface;
 use App\Infrastructure\FieldTypes\Photo\Value;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\Exceptions\BadStateException;
@@ -25,7 +27,7 @@ final class PhotoAccess
         private readonly ContentService $contentService,
         private readonly TranslationHelper $translationHelper,
         private readonly PermissionResolver $permissionResolver,
-        private readonly FileStorageInterface $fileStorage,
+        private readonly VariationProviderInterface $variationProvider,
     ) {
     }
 
@@ -33,9 +35,13 @@ final class PhotoAccess
      * @throws BadStateException
      * @throws InvalidArgumentException
      */
-    #[Route('/photo/{contentId}/{fieldIdentifier}/{baseFilename}')]
-    public function __invoke(int $contentId, string $fieldIdentifier, string $baseFilename): BinaryFileResponse
-    {
+    #[Route('/photo/{contentId}/{fieldIdentifier}/{variationName}/{baseFilename}')]
+    public function __invoke(
+        int $contentId,
+        string $fieldIdentifier,
+        string $variationName,
+        string $baseFilename
+    ): BinaryFileResponse {
         try {
             $content = $this->contentService->loadContent($contentId);
         } catch (NotFoundException|UnauthorizedException) {
@@ -54,9 +60,11 @@ final class PhotoAccess
         }
 
         try {
-            $file = $this->fileStorage->getFileFromPathname((string)$fieldValue->pathname);
-        } catch (FileNotFoundException) {
-            throw new NotFoundHttpException('File not found');
+            $file = $this->variationProvider->getVariationFile($fieldValue, $content->id, $fieldIdentifier, $variationName);
+        } catch (FileNotFoundException $e) {
+            throw new NotFoundHttpException('File not found', previous: $e);
+        } catch (NonExistingVariationNameException $e) {
+            throw new NotFoundHttpException($e->getMessage(), $e);
         }
 
         $response = new BinaryFileResponse($file);
