@@ -22,4 +22,9 @@ final class Value extends BaseValue
     {
         return (string)$this->pathname;
     }
+
+    public function getBaseFileName(): string
+    {
+        return basename((string)$this->pathname);
+    }
 }

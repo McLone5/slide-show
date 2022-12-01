@@ -34,7 +34,7 @@ final class PhotoAccess
      * @throws BadStateException
      * @throws InvalidArgumentException
      */
-    #[Route('/photo/{contentId}/{fieldIdentifier}/{variationName}/{baseFilename}')]
+    #[Route('/photo/{contentId}/{fieldIdentifier}/{variationName}/{baseFilename}', name: 'photo_access')]
     public function __invoke(
         int $contentId,
         string $fieldIdentifier,

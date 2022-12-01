@@ -94,6 +94,8 @@ ibexa:
                     reference: reference
                     filters:
                         geometry/scalewidthdownonly: [ 300 ]
+            field_templates:
+                - {template: '@ibexadesign/fields/mlphoto.html.twig', priority: 0}
             assets:
                 icon_sets:
                     public_icons: /bundles/ibexaadminui/img/ibexa-icons.svg

@@ -1,0 +1,32 @@
+{% extends '@IbexaCore/content_fields.html.twig' %}
+{# This field accepts the following parameters:
+ #   - alias (image variation name). Defaults to "thumb" (e.g. image originally uploaded)
+ #   - parameters.width. Allows forcing width of the image in the HTML
+ #   - parameters.height. Allows forcing height of the image in the HTML
+ #   - parameters.class. Allows setting CSS custom class name for the image
+#}
+{% block mlphoto_field %}
+    {% apply spaceless %}
+        {% if not ibexa_field_is_empty(content, field) %}
+            <figure {{ block('field_attributes') }}>
+                {% set src = path('photo_access', {'contentId': content.id, 'fieldIdentifier': field.fieldDefIdentifier, 'variationName': parameters.alias|default('thumb'), 'baseFilename': field.value.baseFileName}) %}
+                {% set attrs = {
+                    class: parameters.class|default(''),
+                    height: parameters.height is defined ? parameters.height : '',
+                    width: parameters.width is defined ? parameters.width : '',
+                } %}
+                {% if parameters.ezlink|default({}) is not empty %}
+                <a
+                        href="{{ parameters.ezlink.href }}"
+                        {% if parameters.ezlink.title is defined %} title="{{ parameters.ezlink.title|e('html_attr') }}"{% endif %}
+                        {% if parameters.ezlink.target is defined %} target="{{ parameters.ezlink.target|e('html_attr') }}"{% endif %}
+                >
+                    {% endif %}
+                    <img src="{{ src }}" alt="{{ parameters.alternativeText|default(field.value.alternativeText) }}" {% for attrname, attrvalue in attrs %}{% if attrvalue %}{{ attrname }}="{{ attrvalue }}" {% endif %}{% endfor %}/>
+                    {% if parameters.ezlink|default({}) is not empty %}
+                </a>
+                {% endif %}
+            </figure>
+        {% endif %}
+    {% endapply %}
+{% endblock %}
