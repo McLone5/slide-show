@@ -106,7 +106,8 @@
             "@migrate_db"
         ],
         "migrate_db": [
-            "php bin/console kaliop:migration:migrate -n --siteaccess=admin"
+            "php bin/console kaliop:migration:migrate -n --siteaccess=admin",
+            "php bin/console ibexa:graphql:generate-schema -n"
         ],
         "quick_qa": [
             "php vendor/bin/phpstan analyze",
