@@ -36,8 +36,6 @@
                 <p class="mb-0">
                     {{ 'ibexa_platform_welcome_page.create_new_content_at'|trans({'%target%': '<a href="' ~ admin_url ~ '" class="text-white"><u>' ~ admin_url ~ '</u></a>'})|desc('Create new content at %target%')|raw }}
                 </p>
-                {{ ibexa_render_field(content, 'photo') }}
-                {{ ibexa_render_field(content, 'photo', {'parameters': {'alias': 'original'}}) }}
             </div>
         </div>
     </div>
