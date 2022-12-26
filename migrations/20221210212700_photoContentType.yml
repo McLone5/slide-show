@@ -1,0 +1,75 @@
+-   type: content_type
+    mode: create
+    content_type_group: Content
+    lang: eng-GB
+    name: Photo folder
+    identifier: photo_folder
+    is_container: true
+    name_pattern: <name>
+    default_sort_field: priority
+    default_sort_order: ASC
+    attributes:
+        -   type: ezstring
+            identifier: name
+            name: Title
+            required: true
+
+-   type: content_type
+    mode: create
+    content_type_group: Content
+    lang: eng-GB
+    name: Photo
+    identifier: photo
+    is_container: false
+    name_pattern: <name>
+    attributes:
+        -   type: ezstring
+            identifier: name
+            name: Title
+            required: true
+        -   type: mlphoto
+            identifier: photo
+            name: Photo
+            required: true
+
+-   type: content
+    mode: create
+    lang: eng-GB
+    content_type: photo_folder
+    parent_location: 2
+    remote_id: Test-photo_folder
+    location_remote_id: Test-photo_folder
+    attributes:
+        name: Test
+
+-   type: content
+    mode: create
+    lang: eng-GB
+    content_type: photo
+    parent_location: Test-photo_folder
+    remote_id: Test photo-photo
+    location_remote_id: Test photo-photo
+    attributes:
+        name: Test photo
+        photo: test.jpg
+
+-   type: content
+    mode: create
+    lang: eng-GB
+    content_type: photo_folder
+    parent_location: Test-photo_folder
+    remote_id: Sub test-photo_folder
+    location_remote_id: Sub test-photo_folder
+    attributes:
+        name: Sub test
+
+-   type: content
+    mode: create
+    lang: eng-GB
+    content_type: photo
+    parent_location: Sub test-photo_folder
+    remote_id: Test photo 2-photo
+    location_remote_id: Test photo 2-photo
+    attributes:
+        name: Test photo 2
+        photo: test2.jpg

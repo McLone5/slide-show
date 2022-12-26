@@ -1,0 +1,29 @@
+{# @var photo_folder_list \Ibexa\Contracts\Core\Repository\Values\Content\Location[] #}
+{# @var photo_list \Ibexa\Contracts\Core\Repository\Values\Content\Content[] #}
+
+{% extends '@ibexadesign/pagelayout.html.twig' %}
+
+{% block content %}
+    <h1>{{ ibexa_content_name(content) }}</h1>
+    {% if photo_folder_list %}
+        <ul class="qa-photo-folder-list">
+            {% for folder in photo_folder_list %}
+                <li>
+                    <a href="{{ ibexa_path(folder) }}">
+                        {{ ibexa_content_name(folder.contentInfo) }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if photo_list %}
+        <ul class="qa-photo-list">
+            {% for photo in photo_list %}
+                <li>
+                    {% include '@ibexadesign/embed/photo.html.twig' with {'content': photo} %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

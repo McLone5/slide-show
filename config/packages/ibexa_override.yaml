@@ -10,3 +10,10 @@ ibexa:
                             Id\Location: 2
                         params:
                             project_dir: '%kernel.project_dir%'
+                    photo_folder:
+                        controller: 'App\Actions\Full\PhotoFolder'
+                        template: "@ibexadesign/full/photo_folder.html.twig"
+                        match:
+                            Identifier\ContentType: 'photo_folder'
+                        params:
+                            project_dir: '%kernel.project_dir%'

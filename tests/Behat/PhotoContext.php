@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat;
 
+use Behat\Behat\Tester\Exception\PendingException;
 use RuntimeException;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
@@ -38,5 +39,29 @@ final class PhotoContext extends AbstractContext
         ;
 
         assertEquals([$expectedWidth, $expectedHeight], [$actualWidth, $actualHeight]);
+    }
+
+    /**
+     * @Then /^I get a photo folder list$/
+     */
+    public function iGetAPhotoFolderList(): void
+    {
+        $this->webContext::assertSelectorExists('.qa-photo-folder-list');
+    }
+
+    /**
+     * @Then /^there's no photo folder list$/
+     */
+    public function thereSNoPhotoFolderList(): void
+    {
+        $this->webContext::assertSelectorNotExists('.qa-photo-folder-list');
+    }
+
+    /**
+     * @Given /^I get a photo list$/
+     */
+    public function iGetAPhotoList(): void
+    {
+        $this->webContext::assertSelectorExists('.qa-photo-list');
     }
 }
